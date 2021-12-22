@@ -13,13 +13,7 @@ router.post('/', (req, res) => {
                 console.log(req.body.password)
                 bcrypt.compare(req.body.password, result.dataValues.password)
                     .then(function (response) {
-                        if (!response) {
-                            res.status(401).json({
-                                Message: "Auth failed."
-                            })
-                        }
-                        else {
-                            // console.log(response)
+                        if (response) {
                             const token = jwt.sign({
                                 userId: result.dataValues.id,
                                 isAdmin: result.dataValues.isAdmin,
@@ -35,6 +29,13 @@ router.post('/', (req, res) => {
                                 token: token,
 
                             })
+                        }
+                        else {
+                            // console.log(response)
+                            res.status(401).json({
+                                Message: "Auth failed."
+                            })
+                            
                         }
                     })
             }
