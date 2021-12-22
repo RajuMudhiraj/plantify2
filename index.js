@@ -1,6 +1,15 @@
+// configuring dotenv 
 require('dotenv').config();
+
+//requiring express
 const express = require('express')
+
+// assigning express function to app const
 const app = express();
+
+// requiring sequelize instance and connect function and connecting to Database
+const {sequelize, connect} = require('./app/config/database')
+connect(sequelize)
 
 
 // home route
