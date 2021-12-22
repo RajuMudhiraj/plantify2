@@ -18,5 +18,8 @@
   "homepage": "https://github.com/RajuMudhiraj/plantify2#readme",
   "dependencies": {
     "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0"
   }
 }
