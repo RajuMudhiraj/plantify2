@@ -8,7 +8,7 @@ const express = require('express')
 const app = express();
 
 // requiring sequelize instance and connect function and connecting to Database
-const {sequelize, connect} = require('./app/config/database')
+const { sequelize, connect } = require('./app/config/database')
 connect(sequelize)
 
 
@@ -17,6 +17,9 @@ app.get("/", (req, res) => {
     res.status(200).json({ message: "Welcome to IMDB" });
 
 });
+
+// Sign in route
+app.use('/signin', require('./app/routes/signIn'))
 
 // set port, listen for requests
 app.listen(process.env.PORT, (err) => {
