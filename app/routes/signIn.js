@@ -10,7 +10,6 @@ router.post('/', (req, res) => {
     User.findOne({ where: { email: req.body.email } })
         .then(result => {
             if (result) {
-                console.log(req.body.password)
                 bcrypt.compare(req.body.password, result.dataValues.password)
                     .then(function (response) {
                         if (response) {
@@ -35,7 +34,7 @@ router.post('/', (req, res) => {
                             res.status(401).json({
                                 Message: "Auth failed."
                             })
-                            
+
                         }
                     })
             }

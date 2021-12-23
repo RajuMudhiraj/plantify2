@@ -7,9 +7,15 @@ const express = require('express')
 // assigning express function to app const
 const app = express();
 
+// requiring cross-origin-resource-sharing
+const cors = require('cors')
+
 // requiring sequelize instance and connect function and connecting to Database
 const { sequelize, connect } = require('./app/config/database')
 connect(sequelize)
+
+// using cors middleware
+app.use(cors())
 
 
 //body-parser
