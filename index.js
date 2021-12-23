@@ -10,6 +10,9 @@ const app = express();
 // requiring cross-origin-resource-sharing
 const cors = require('cors')
 
+// requiring logger middleware (morgan)
+const morgan = require('morgan')
+
 // requiring sequelize instance and connect function and connecting to Database
 const { sequelize, connect } = require('./app/config/database')
 connect(sequelize)
@@ -17,9 +20,12 @@ connect(sequelize)
 // using cors middleware
 app.use(cors())
 
+// using logger middleware
+app.use(morgan('tiny'))
 
 //body-parser
 app.use(express.json())
+
 // home route
 app.get("/", (req, res) => {
     res.status(200).json({ message: "Welcome to Plant1Tree" });

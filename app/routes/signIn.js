@@ -3,7 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const { Sequelize, Op } = require('sequelize')
-const User = require('../models/User')
+const {User} = require('../models/Associations')
 
 // Signing in 
 router.post('/', (req, res) => {
@@ -25,7 +25,7 @@ router.post('/', (req, res) => {
                                 })
                             res.status(200).json({
                                 message: "Auth successful",
-                                token: token,
+                                token: token
 
                             })
                         }
