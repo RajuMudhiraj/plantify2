@@ -1,46 +1,48 @@
 const express = require('express');
 const router = express.Router();
-const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
-const { Sequelize, Op } = require('sequelize')
-const User = require('../models/User')
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const { Sequelize, Op } = require('sequelize');
+const { User } = require('../models/Associations');
 
 // Handling POST request to /signUp
 router.post('/', (req, res) => {
-    User.findOne({ where: { email: req.body.email } })
-        .then(result => {
-            if (result) {
-                res.status(200).json({ message: "User already exists." })
-            }
-            else {
-                bcrypt.hash(req.body.password, 10, function (err, hash) {
-                    if (err) {
-                        res.status(500).json({ Error: err + " Something went wrong while hashing password" })
-                    }
-                    if (hash) {
-                        const user = {
-                            email: req.body.email,
-                            password: hash,
-                            name: req.body.name,
-                            gender: req.body.gender,
-                            dob: req.body.dob
-                        }
-                        User.create(user)
-                            .then(result => {
-                                res.status(201).json("User created successfully!")
-                            })
-                            .catch(err => {
-                                res.status(500).json({ Error: err + " Something went wrong while creating user." })
-                            })
-                    }
 
-                });
+    if (req.session.otp === req.session.newOtp) {
 
+        req.session.otp = 1;
+        req.session.newOtp = 5;
+
+
+        bcrypt.hash(req.body.password, 10, function (err, hash) {
+            if (err) {
+                res.status(500).json({ Error: err + " Something went wrong while hashing password" })
             }
-        })
-        .catch(err => {
-            res.status(500).json({ Error: err + " Something went wrong while finding user." })
-        })
+            if (hash) {
+                const user = {
+                    email: req.session.email,
+                    password: hash,
+                    name: req.body.name,
+                    gender: req.body.gender,
+                    dob: req.body.dob
+                }
+                User.create(user)
+                    .then(result => {
+                        res.status(201).json("User created successfully!")
+                    })
+                    .catch(err => {
+                        res.status(500).json({ Error: err + " Something went wrong while creating user." })
+                    })
+            }
+
+        });
+    }
+    else {
+        res.status(401).json({ message: "Please verify email" })
+    }
+
+
 })
+
 
 module.exports = router;
