@@ -7,11 +7,13 @@ const { User } = require('../models/Associations');
 
 // Handling POST request to /signUp
 router.post('/', (req, res) => {
+    console.log(req.session.email, req.session.otp, req.session.newOtp)
 
     if (req.session.otp === req.session.newOtp) {
 
-        req.session.otp = 1;
-        req.session.newOtp = 5;
+
+        // req.session.otp = "535e1f";
+        // req.session.newOtp = "d4f6ef";
 
 
         bcrypt.hash(req.body.password, 10, function (err, hash) {

@@ -15,6 +15,8 @@ router.post('/', (req, res) => {
                     req.session.email = req.body.email;
                     const result = await Auth(req.body.email, "Test company");
                     req.session.otp = result.OTP
+                    console.log(result.OTP)
+                    console.log(req.session.email)
                     res.status(200).json({ message: "OTP sent successfully!" })
                 }
                 catch (err) {

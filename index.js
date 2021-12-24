@@ -47,14 +47,15 @@ app.get("/", (req, res) => {
 // Sign in route
 app.use('/signIn', require('./app/routes/signIn'))
 
-// Sign up route
-app.use('/signUp', require('./app/routes/signUp'))
-
 //  check email existence and send otp
 app.use('/checkEmailExistence', require('./app/routes/checkEmailExistence'))
 
 //  verify email otp
 app.use('/verifyEmailOtp', require('./app/routes/verifyEmailOtp'))
+
+// Sign up route
+app.use('/signUp', require('./app/routes/signUp'))
+
 
 
 
