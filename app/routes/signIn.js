@@ -3,11 +3,11 @@ const router = express.Router();
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const { Sequelize, Op } = require('sequelize')
-const {User} = require('../models/Associations')
+const { User } = require('../models/Associations')
 
 // Signing in 
 router.post('/', (req, res) => {
-    User.findOne({ where: { email: req.body.email } })
+    User.findOne({ where: { email: req.body.email }})
         .then(result => {
             if (result) {
                 bcrypt.compare(req.body.password, result.dataValues.password)
@@ -21,7 +21,6 @@ router.post('/', (req, res) => {
                                 process.env.SECRET,
                                 {
                                     expiresIn: "1d"
-
                                 })
                             res.status(200).json({
                                 message: "Auth successful",
