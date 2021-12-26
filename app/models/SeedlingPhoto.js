@@ -17,5 +17,5 @@ const SeedlingPhoto = sequelize.define('SeedlingPhoto', {
     timestamps: true
 });
 
-module.exports = SeedlingPhoto
+module.exports = SeedlingPhoto;
 

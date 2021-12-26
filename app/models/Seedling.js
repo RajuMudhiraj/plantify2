@@ -21,11 +21,11 @@ const Seedling = sequelize.define('Seedling', {
     quantity: {
         type: DataTypes.INTEGER
     },
-    // status: {
-    //     type: DataTypes.ENUM("notReadyToDistribute", "readyToDistribute"),
-    //     defaultValue: "notReadyToDistribute"
+    status: {
+        type: DataTypes.ENUM("notReadyToDistribute", "readyToDistribute"),
+        defaultValue: "notReadyToDistribute"
 
-    // }
+    }
 
 }, {
     timestamps: true

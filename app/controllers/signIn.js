@@ -1,9 +1,9 @@
-const { User } = require('../models/Associations')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const User = require('../models/User')
 
-module.exports = (req, res) => {
-    User.findOne({ where: { email: req.body.email }})
+const signIn = (req, res) => {
+    User.findOne({ where: { email: req.body.email } })
         .then(result => {
             if (result) {
                 bcrypt.compare(req.body.password, result.dataValues.password)
@@ -43,3 +43,5 @@ module.exports = (req, res) => {
             res.status(500).json({ Error: err + " Something went wrong while finding user." })
         })
 }
+
+module.exports = signIn;

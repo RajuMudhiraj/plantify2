@@ -1,8 +1,8 @@
-const { User } = require('../models/Associations')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const User = require('../models/User')
 
-module.exports = (req, res) => {
+const signUp = (req, res) => {
 
     if (req.session.otp && req.session.otp === req.session.newOtp) {
 
@@ -35,3 +35,5 @@ module.exports = (req, res) => {
 
 
 }
+
+module.exports = signUp;
