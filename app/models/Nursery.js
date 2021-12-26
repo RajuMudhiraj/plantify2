@@ -11,7 +11,7 @@ const Nursery = sequelize.define('Nursery', {
     },
     name: {
         type: DataTypes.STRING,
-        unique: true,
+        // unique: true,
         allowNull: false,
     },
     address: {
@@ -19,16 +19,13 @@ const Nursery = sequelize.define('Nursery', {
         allowNull: false,
     },
     location: {
-        type: {
-            lat: {
-                type: DataTypes.FLOAT,
-                allowNull: false
-            },
-            lang: {
-                type: DataTypes.FLOAT,
-                allowNull: false
-            }
-        }
+        type: DataTypes.JSON,
+        lat: {
+            type: DataTypes.STRING,
+        },
+        long: {
+            type: DataTypes.STRING,
+        },
     },
     photo: {
         type: DataTypes.STRING,

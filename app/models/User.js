@@ -28,8 +28,14 @@ const User = sequelize.define('User', {
     },
     // gender: {
     //     type: DataTypes.ENUM(["male", "female", "others"]),
-    //     // allowNull: false
-    // },
+    //     allowNull : false, 
+    //     defaultValue : 'male',
+    //     validate: {
+    //       isIn: { 
+    //         args: [["male", "female", "others"]],
+    //         msg: "Wrong status"
+    //       }
+    //     }    },
     dob: {
         type: DataTypes.DATEONLY,
         allowNull: false

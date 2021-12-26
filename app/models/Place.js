@@ -10,16 +10,13 @@ const Place = sequelize.define('Place', {
         primaryKey: true,
     },
     location: {
-        type: {
-            lat: {
-                type: DataTypes.FLOAT,
-                allowNull: false
-            },
-            lang: {
-                type: DataTypes.FLOAT,
-                allowNull: false
-            }
-        }
+        type: DataTypes.JSON,
+        lat: {
+            type: DataTypes.INTEGER,
+        },
+        long: {
+            type: DataTypes.INTEGER,
+        },
     },
 }, {
     timestamps: true
