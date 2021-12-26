@@ -2,7 +2,7 @@ const { Sequelize, DataTypes } = require('sequelize')
 const { sequelize } = require('../config/database')
 
 
-exports.default = sequelize.define('Seedling', {
+const Seedling = sequelize.define('Seedling', {
     // Model attributes are defined here
     id: {
         type: Sequelize.UUID,
@@ -19,7 +19,7 @@ exports.default = sequelize.define('Seedling', {
         defaultValue: 0
     },
     quantity: {
-        type: DataTypes.NUMBER
+        type: DataTypes.INTEGER
     },
     status: {
         type: DataTypes.ENUM("notReadyToDistribute", "readyToDistribute"),
@@ -31,3 +31,4 @@ exports.default = sequelize.define('Seedling', {
     timestamps: true
 });
 
+module.exports = Seedling;

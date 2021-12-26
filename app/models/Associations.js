@@ -8,4 +8,4 @@ const Plant = require('./Plant');
 
 
 
-module.exports =  {User, Nursery, Seedling, SeedlingPhoto, Place, Plant}
+// module.exports =  {User, Nursery, Seedling, SeedlingPhoto, Place, Plant}

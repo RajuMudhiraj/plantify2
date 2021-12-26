@@ -11,7 +11,7 @@ router.post('/', (req, res) => {
     const inputData = {
         name: name,
         address: address,
-        location: location,
+        // location: location,
         photo: photo
     }
     Nursery.create(inputData)

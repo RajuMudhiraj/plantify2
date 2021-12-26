@@ -2,7 +2,7 @@ const { Sequelize, DataTypes } = require('sequelize')
 const { sequelize } = require('../config/database')
 
 
-exports.default = sequelize.define('Plant', {
+const Plant = sequelize.define('Plant', {
     // Model attributes are defined here
     id: {
         type: Sequelize.UUID,
@@ -17,4 +17,6 @@ exports.default = sequelize.define('Plant', {
 }, {
     timestamps: true
 });
+
+module.exports = Plant;
 

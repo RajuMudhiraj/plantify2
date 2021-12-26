@@ -35,7 +35,7 @@ app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: { maxAge: 1000*60*60 }
+    cookie: { maxAge: 1000 * 60 * 60 }
 }));
 
 // home route
@@ -57,7 +57,7 @@ app.use('/verifyEmailOtp', require('./app/routes/verifyEmailOtp'))
 app.use('/signUp', require('./app/routes/signUp'))
 
 //  add Nursery
-app.use('/addNursery', require('./app/routes/addNursery'))
+// app.use('/addNursery', require('./app/routes/addNursery'))
 
 
 
