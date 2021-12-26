@@ -13,12 +13,12 @@ const User = sequelize.define('User', {
         type: DataTypes.STRING,
         unique: true,
         allowNull: false,
-        validate:{
-            isEmail:true
+        validate: {
+            isEmail: true
         }
 
     },
-     password: {
+    password: {
         type: DataTypes.STRING,
         allowNull: false,
     },
@@ -26,10 +26,10 @@ const User = sequelize.define('User', {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    gender: {
-        type: DataTypes.ENUM("male", "female", "others"),
-        allowNull: false
-    },
+    // gender: {
+    //     type: DataTypes.ENUM(["male", "female", "others"]),
+    //     // allowNull: false
+    // },
     dob: {
         type: DataTypes.DATEONLY,
         allowNull: false

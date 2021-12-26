@@ -1,17 +1,20 @@
 const express = require('express');
 const router = express.Router();
+const { Nursery } = require('../models/Associations')
+
 
 // Handling POST request to /addNursery
-router.post('/', (req, res) => {qq
+router.post('/', (req, res) => {
+    
     const { name, address, location, photo } = req.body;
 
     const inputData = {
-        name,
-        address,
-        location,
-        photo
+        name: name,
+        address: address,
+        location: location,
+        photo: photo
     }
-    Nursery.create()
+    Nursery.create(inputData)
         .then(result => {
             res.status(201).json(result)
         })

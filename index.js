@@ -56,6 +56,9 @@ app.use('/verifyEmailOtp', require('./app/routes/verifyEmailOtp'))
 // Sign up route
 app.use('/signUp', require('./app/routes/signUp'))
 
+//  add Nursery
+app.use('/addNursery', require('./app/routes/addNursery'))
+
 
 
 

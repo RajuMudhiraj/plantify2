@@ -7,7 +7,7 @@ const { User } = require('../models/Associations')
 
 // Signing in 
 router.post('/', (req, res) => {
-    User.findOne({ where: { email: req.body.email }})
+    User.findOne({ where: { email: req.body.email } })
         .then(result => {
             if (result) {
                 bcrypt.compare(req.body.password, result.dataValues.password)
