@@ -8,7 +8,7 @@ const viewUsers = (req, res) => {
             res.status(201).json(result)
         })
         .catch(err => {
-            res.status(500).json({ Error: err + " Something went wrong while finding Nurseries." })
+            res.status(500).json({ Error: err + " Something went wrong while finding Users." })
         })
 }
 
