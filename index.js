@@ -16,6 +16,12 @@ const morgan = require('morgan')
 // requiring express-session for holding data
 const session = require('express-session');
 
+// Importing middleware of verifyAdmin
+const verifyAdmin = require('./app/middlewares/verifyAdmin')
+
+// Importing middleware of verifyAuth
+const verifyAuth = require('./app/middlewares/verifyAuth')
+
 
 // requiring sequelize instance and connect function and connecting to Database
 const { sequelize, connect } = require('./app/config/database')
@@ -60,7 +66,11 @@ app.use('/signUp', require('./app/routes/signUp'))
 app.use('/addNursery', require('./app/routes/addNursery'))
 
 //  view Nurseries
-app.use('/viewNurseries', require('./app/routes/viewNurseries'))
+app.use('/viewNurseries', verifyAuth, require('./app/routes/viewNurseries'))
+
+
+//  view Users
+app.use('/viewUsers', verifyAdmin, require('./app/routes/viewUsers'))
 
 
 

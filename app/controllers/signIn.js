@@ -18,11 +18,16 @@ const signIn = (req, res) => {
                                 {
                                     expiresIn: "1d"
                                 })
-                            res.status(200).json({
-                                message: "Auth successful",
-                                token: token
+                            req.session.userId = result.dataValues.id,
+                                req.session.name = result.dataValues.name,
+                                req.session.isAdmin = result.dataValues.isAdmin,
 
-                            })
+
+                                res.status(200).json({
+                                    message: "Auth successful",
+                                    token: token
+
+                                })
                         }
                         else {
                             // console.log(response)
