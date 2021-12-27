@@ -2,8 +2,6 @@ const Nursery = require('../models/Nursery')
 
 
 const addNursery = (req, res) => {
-    console.log(req.body)
-
     const { name, address, location, photo } = req.body;
 
     const inputData = {

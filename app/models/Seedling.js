@@ -22,9 +22,17 @@ const Seedling = sequelize.define('Seedling', {
         type: DataTypes.INTEGER
     },
     status: {
-        type: DataTypes.ENUM("notReadyToDistribute", "readyToDistribute"),
-        defaultValue: "notReadyToDistribute"
-
+        type: Sequelize.DataTypes.STRING,
+        allowNull: false,
+        defaultValue: 'notReadyToDistribute',
+        validate: {
+            customValidator: (value) => {
+                const enums = ['notReadyToDistribute', 'readyToDistribute']
+                if (!enums.includes(value)) {
+                    throw new Error('not a valid option')
+                }
+            }
+        }
     }
 
 }, {

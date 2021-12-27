@@ -27,15 +27,18 @@ const User = sequelize.define('User', {
         allowNull: false,
     },
     gender: {
-        type: DataTypes.ENUM(["male", "female", "others"]),
-        allowNull : false, 
-        defaultValue : 'male',
+        type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: 'male',
         validate: {
-          isIn: { 
-            args: [["male", "female", "others"]],
-            msg: "Wrong gender"
-          }
-        }    },
+            customValidator: (value) => {
+                const enums = ['male', 'female', 'others']
+                if (!enums.includes(value)) {
+                    throw new Error('not a valid option')
+                }
+            }
+        }
+    },
     dob: {
         type: DataTypes.DATEONLY,
         allowNull: false

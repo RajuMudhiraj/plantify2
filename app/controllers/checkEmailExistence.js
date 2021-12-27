@@ -7,13 +7,12 @@ const checkEmail = (req, res) => {
 
     if (email.match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)) {
 
-        User.findOne({ where: { email: req.body.email } })
+        User.findOne({ where: { email: email } })
             .then(async result => {
                 if (result) {
                     res.status(200).json({ message: "User already exists." })
                 }
                 else {
-                    console.log('test')
                     try {
                         req.session.email = req.body.email;
                         const result = await Auth(req.body.email, "Test company");

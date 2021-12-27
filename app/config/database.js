@@ -4,7 +4,7 @@ require('dotenv').config();
 const { Sequelize } = require('sequelize')
 
 
-const sequelize = new Sequelize("postgres://" + process.env.ELEPHANTSQL_USR + ":" + process.env.ELEPHANTSQL_PWD + "@localhost:5432/capstone", {
+const sequelize = new Sequelize(process.env.ELEPHANTSQL_DIALECT + "://" + process.env.ELEPHANTSQL_USR + ":" + process.env.ELEPHANTSQL_PWD + "@" + process.env.ELEPHANTSQL_HOST + "/" + process.env.ELEPHANTSQL_DB, {
     logging: false,
     define: {
         freezeTableName: true

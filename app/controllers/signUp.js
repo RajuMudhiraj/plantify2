@@ -20,6 +20,10 @@ const signUp = (req, res) => {
                 }
                 User.create(user)
                     .then(result => {
+
+                        // changing the req.session.otp to a new value
+                        req.session.otp = "ga44$@&*1654"
+                        
                         res.status(201).json("User created successfully!")
                     })
                     .catch(err => {
