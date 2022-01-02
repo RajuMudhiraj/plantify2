@@ -8,6 +8,9 @@ const Seedling = require('./Seedling');
 User.hasMany(AddPlace)
 AddPlace.belongsTo(User)
 
+User.hasMany(Nursery)
+Nursery.belongsTo(User)
+
 
 FlowBar.hasOne(AddPlace)
 AddPlace.belongsTo(FlowBar)
