@@ -65,12 +65,20 @@ app.use('/signUp', require('./app/routes/signUp'))
 //  add Nursery
 app.use('/addNursery', verifyAuth, require('./app/routes/addNursery'))
 
+//  add Seedling
+app.use('/addSeedling', verifyAuth, require('./app/routes/addSeedling'))
+
 //  view Nurseries
 app.use('/viewNurseries', verifyAuth, require('./app/routes/viewNurseries'))
 
-
 //  view Users
 app.use('/viewUsers', verifyAdmin, require('./app/routes/viewUsers'))
+
+//  flowBar
+app.use('/flowBar', verifyAuth, require('./app/routes/flowBar'))
+
+//  Add Plants Place
+app.use('/addPlace', verifyAuth, require('./app/routes/addPlace'))
 
 
 

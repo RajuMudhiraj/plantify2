@@ -14,9 +14,7 @@ const Plant = sequelize.define('Plant', {
         type: DataTypes.STRING,
     }
 
-}, {
-    timestamps: true
-});
+}, { timestamps: false });
 
 module.exports = Plant;
 

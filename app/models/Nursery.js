@@ -11,27 +11,23 @@ const Nursery = sequelize.define('Nursery', {
     },
     name: {
         type: DataTypes.STRING,
-        // unique: true,
+        unique: true,
         allowNull: false,
     },
     address: {
         type: DataTypes.STRING,
-        allowNull: false,
     },
-    location: {
-        type: DataTypes.JSON,
-        lat: {
-            type: DataTypes.STRING,
-        },
-        long: {
-            type: DataTypes.STRING,
-        },
+    lat: {
+        type: DataTypes.FLOAT,
+        allowNull: false
+    },
+    long: {
+        type: DataTypes.FLOAT,
+        allowNull: false
     },
     photo: {
         type: DataTypes.STRING,
     }
-}, {
-    timestamps: true
-});
+}, { timestamps: false });
 
 module.exports = Nursery;

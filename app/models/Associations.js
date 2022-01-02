@@ -1,9 +1,23 @@
 const User = require('./User');
+const FlowBar = require('./FlowBar');
+const AddPlace = require('./AddPlace');
 const Nursery = require('./Nursery');
 const Seedling = require('./Seedling');
-const SeedlingPhoto = require('./SeedlingPhoto');
-const Place = require('./Place');
-const Plant = require('./Plant');
+
+
+User.hasMany(AddPlace)
+AddPlace.belongsTo(User)
+
+
+FlowBar.hasOne(AddPlace)
+AddPlace.belongsTo(FlowBar)
+
+Nursery.hasMany(Seedling)
+Seedling.belongsTo(Nursery)
+
+
+
+
 
 
 

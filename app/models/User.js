@@ -47,8 +47,6 @@ const User = sequelize.define('User', {
         type: DataTypes.BOOLEAN,
         defaultValue: "false",
     }
-}, {
-    timestamps: true
-});
+}, { timestamps: false });
 
 module.exports = User;

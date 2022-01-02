@@ -16,7 +16,7 @@ async function connect(sequelize) {
         console.log('Connection to elephantsql has been established successfully.');
 
         // making sequelize create tables if not exist 
-        await sequelize.sync()
+        await sequelize.sync({ alter: true })
 
 
     } catch (error) {

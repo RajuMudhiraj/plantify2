@@ -18,9 +18,9 @@ const signIn = (req, res) => {
                                 {
                                     expiresIn: "1d"
                                 })
-                            req.session.userId = result.dataValues.id,
-                                req.session.name = result.dataValues.name,
-                                req.session.isAdmin = result.dataValues.isAdmin,
+                            // req.session.userId = result.dataValues.id,
+                            //     req.session.name = result.dataValues.name,
+                            //     req.session.isAdmin = result.dataValues.isAdmin,
 
 
                                 res.status(200).json({

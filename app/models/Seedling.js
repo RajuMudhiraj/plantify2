@@ -1,7 +1,6 @@
 const { Sequelize, DataTypes } = require('sequelize')
 const { sequelize } = require('../config/database')
 
-
 const Seedling = sequelize.define('Seedling', {
     // Model attributes are defined here
     id: {
@@ -13,6 +12,7 @@ const Seedling = sequelize.define('Seedling', {
         type: DataTypes.STRING,
         unique: true,
         allowNull: false,
+
     },
     price: {
         type: DataTypes.DECIMAL,
@@ -21,22 +21,14 @@ const Seedling = sequelize.define('Seedling', {
     quantity: {
         type: DataTypes.INTEGER
     },
-    status: {
-        type: Sequelize.DataTypes.STRING,
-        allowNull: false,
-        defaultValue: 'notReadyToDistribute',
-        validate: {
-            customValidator: (value) => {
-                const enums = ['notReadyToDistribute', 'readyToDistribute']
-                if (!enums.includes(value)) {
-                    throw new Error('not a valid option')
-                }
-            }
-        }
+    distributedTo: {
+        type: DataTypes.STRING,
+        defaultValue: null,
+    },
+    photo: {
+        type: DataTypes.STRING,
     }
 
-}, {
-    timestamps: true
-});
+}, { timestamps: false });
 
 module.exports = Seedling;

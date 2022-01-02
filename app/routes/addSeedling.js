@@ -3,7 +3,7 @@ const router = express.Router();
 
 
 // Handling POST request to /addNursery
-router.post('/', require('../controllers/addNursery'))
+router.post('/', require('../controllers/addSeedling'))
 
 
 module.exports = router;
