@@ -11,7 +11,7 @@ const Nursery = sequelize.define('Nursery', {
     },
     name: {
         type: DataTypes.STRING,
-        unique: true,
+        // unique: true,
         allowNull: false,
     },
     address: {
