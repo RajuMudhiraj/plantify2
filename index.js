@@ -86,6 +86,9 @@ app.use('/addPlace', verifyAuth, require('./app/routes/addPlace'))
 //  Order Seedling
 app.use('/orderSeedling', verifyAuth, require('./app/routes/orderSeedling'))
 
+//  View Orders
+app.use('/viewOrders', verifyAuth, require('./app/routes/viewOrders'))
+
 
 
 
