@@ -19,6 +19,26 @@ const AddPlace = sequelize.define('AddPlace', {
     long: {
         type: DataTypes.FLOAT,
         allowNull: false
+    },
+    isSeedlingOrdered: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
+
+    },
+    isSeedlingDelivered: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
+
+    },
+    isPlanted: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
+
+    },
+    isDonated: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
+
     }
 }, { timestamps: false });
 

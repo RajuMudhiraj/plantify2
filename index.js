@@ -78,10 +78,13 @@ app.use('/viewSeedlings', verifyAuth, require('./app/routes/viewSeedlings'))
 app.use('/viewUsers', verifyAdmin, require('./app/routes/viewUsers'))
 
 //  flowBar
-app.use('/flowBar', verifyAuth, require('./app/routes/flowBar'))
+app.use('/viewPlaces', verifyAuth, require('./app/routes/viewPlaces'))
 
 //  Add Plants Place
 app.use('/addPlace', verifyAuth, require('./app/routes/addPlace'))
+
+//  Order Seedling
+app.use('/orderSeedling', verifyAuth, require('./app/routes/orderSeedling'))
 
 
 

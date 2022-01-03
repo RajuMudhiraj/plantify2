@@ -1,19 +1,17 @@
 const { Sequelize, DataTypes } = require('sequelize')
 const { sequelize } = require('../config/database')
 
-
-const SeedlingPhoto = sequelize.define('SeedlingPhoto', {
+const SeedlingOrdersPlaced = sequelize.define('SeedlingOrdersPlaced', {
     // Model attributes are defined here
     id: {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV1,
         primaryKey: true,
     },
-    photo: {
-        type: DataTypes.STRING,
+    quantity:{
+        type: DataTypes.INTEGER,
+        allowNull:false
     }
-
 }, { timestamps: false });
 
-module.exports = SeedlingPhoto;
-
+module.exports = SeedlingOrdersPlaced;

@@ -3,7 +3,7 @@ const router = express.Router();
 
 
 // Handling POST request to /flowBar
-router.get('/', require('../controllers/flowBar'))
+router.post('/', require('../controllers/orderSeedling'))
 
 
 module.exports = router;

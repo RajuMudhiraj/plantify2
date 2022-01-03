@@ -17,7 +17,7 @@ const addPlace = async (req, res) => {
 
             const user = await User.findOne({ where: { id: userId } }, { transaction: t });
             const place = await user.createAddPlace({ lat, long, name }, { transaction: t });
-            const flowBar = await place.createFlowBar({ addedPlace }, { transaction: t });
+            // const flowBar = await place.createFlowBar({ addedPlace:true }, { transaction: t });
 
             res.status(201).json({ message: "Place added successfully!" })
 

@@ -21,10 +21,6 @@ const Seedling = sequelize.define('Seedling', {
     quantity: {
         type: DataTypes.INTEGER
     },
-    distributedTo: {
-        type: DataTypes.STRING,
-        defaultValue: null,
-    },
     photo: {
         type: DataTypes.STRING,
     }
