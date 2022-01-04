@@ -1,7 +1,7 @@
 const Seedling = require('../models/Seedling')
 const User = require('../models/User')
 const AddPlace = require('../models/AddPlace')
-const SeedlingOrdersPlaced = require('../models/SeedlingOrdersPlaced')
+const SeedlingOrders = require('../models/SeedlingOrders')
 
 const { sequelize } = require('../config/database')
 
@@ -26,8 +26,9 @@ const orderSeedling = async (req, res) => {
             const result = await sequelize.transaction(async (t) => {
 
                 const seedling = await Seedling.decrement('quantity', { by: 1, where: { id: seedlingId } }, { transaction: t })
+                const order = await SeedlingOrders.create({ quantity: 1, UserId: userId, SeedlingId: seedlingId, AddPlaceId: placeId }, { transaction: t })
+                console.log(order)
                 const place = await AddPlace.update({ isSeedlingOrdered: true }, { where: { id: placeId } }, { transaction: t })
-                const order = await SeedlingOrdersPlaced.create({ quantity: 1, UserId: userId, SeedlingId: seedlingId }, { transaction: t })
 
                 res.status(201).json({ message: "Order placed successfully!" })
             })

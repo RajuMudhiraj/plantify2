@@ -3,17 +3,21 @@ const FlowBar = require('./FlowBar');
 const AddPlace = require('./AddPlace');
 const Nursery = require('./Nursery');
 const Seedling = require('./Seedling');
-const SeedlingOrdersPlaced = require('./SeedlingOrdersPlaced');
+const SeedlingOrdersPlaced = require('./SeedlingOrders');
 const Plant = require('./Plant')
+const SeedlingOrders = require('./SeedlingOrders');
+
 
 
 User.hasMany(AddPlace)
 User.hasMany(Nursery)
 User.hasMany(FlowBar)
-User.hasMany(SeedlingOrdersPlaced)
+User.hasMany(SeedlingOrders)
 
 AddPlace.belongsTo(User)
+AddPlace.hasOne(SeedlingOrders)
 AddPlace.hasOne(FlowBar)
+AddPlace.hasOne(Plant)
 
 Nursery.hasMany(Seedling)
 Nursery.belongsTo(User)
@@ -22,7 +26,11 @@ FlowBar.belongsTo(AddPlace)
 FlowBar.belongsTo(User)
 
 Seedling.belongsTo(Nursery)
-Seedling.hasOne(SeedlingOrdersPlaced)
+Seedling.hasOne(SeedlingOrders)
 
-SeedlingOrdersPlaced.belongsTo(User)
-SeedlingOrdersPlaced.belongsTo(Seedling)
+
+SeedlingOrders.belongsTo(Seedling)
+SeedlingOrders.belongsTo(User)
+SeedlingOrders.belongsTo(AddPlace)
+
+Plant.belongsTo(AddPlace)

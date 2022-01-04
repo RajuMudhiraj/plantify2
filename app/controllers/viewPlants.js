@@ -1,10 +1,10 @@
-const SeedlingOrdersPlaced = require('../models/SeedlingOrders')
+const Plant = require('../models/Plant')
 const { Op } = require('sequelize')
 
-const viewOrders = (req, res) => {
+const viewPlants = (req, res) => {
     const {userId} = req.userData;
     
-    SeedlingOrdersPlaced.findAll({ where: { UserId: userId}})
+    Plant.findAll()
         // .save()
         .then(result => {
             res.status(201).json(result)
@@ -14,4 +14,4 @@ const viewOrders = (req, res) => {
         })
 }
 
-module.exports = viewOrders;
+module.exports = viewPlants;

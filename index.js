@@ -89,6 +89,15 @@ app.use('/orderSeedling', verifyAuth, require('./app/routes/orderSeedling'))
 //  View Orders
 app.use('/viewOrders', verifyAuth, require('./app/routes/viewOrders'))
 
+//  Mark Orders Delivered
+app.use('/markOrdersDelivered', verifyAuth, require('./app/routes/markOrdersDelivered'))
+
+//  Plant Seedling
+app.use('/plantSeedling', verifyAuth, require('./app/routes/plantSeedling'))
+
+//  View Plants
+app.use('/viewPlants', verifyAuth, require('./app/routes/viewPlants'))
+
 
 
 
