@@ -32,18 +32,18 @@ const signIn = (req, res) => {
                         }
                         else {
                             // console.log(response)
-                            res.status(401).json({
+                            res.status(404).json({
                                 Message: "Auth failed."
                             })
 
                         }
                     })
                     .catch(err => {
-                        res.status(400).json({ message:"Wrong credentials.", Error: err })
+                        res.status(404).json({ message:"Wrong credentials.", Error: err })
                     })
             }
             else {
-                res.status(400).json({
+                res.status(404).json({
                     message: "User not registered"
                 })
             }
