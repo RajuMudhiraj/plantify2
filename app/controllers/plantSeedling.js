@@ -22,9 +22,9 @@ const plantSeedling = async (req, res) => {
             const result = await sequelize.transaction(async (t) => {
 
                 const place = await AddPlace.update({ isPlanted: true }, { where: { id: placeId } }, { transaction: t })
-                const plant = await Plant.create({ photo, AddPlaceId:placeId }, { transaction: t })
+                const plant = await Plant.create({ photo, AddPlaceId: placeId }, { transaction: t })
 
-                res.status(201).json({ plant})
+                res.status(201).json({ plant })
             })
         }
     }

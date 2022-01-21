@@ -38,6 +38,9 @@ const signIn = (req, res) => {
 
                         }
                     })
+                    .catch(err => {
+                        res.status(400).json({ message:"Wrong credentials.", Error: err })
+                    })
             }
             else {
                 res.status(200).json({
