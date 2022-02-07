@@ -48,7 +48,7 @@ const User = sequelize.define('User', {
         defaultValue: "false",
     },
     roles:{
-        type:DataTypes.ARRAY,
+        type:DataTypes.ARRAY(DataTypes.NUMBER),
         // defaultValue:"false"
     }
 }, { timestamps: false });
