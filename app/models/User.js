@@ -49,7 +49,7 @@ const User = sequelize.define('User', {
     },
     roles:{
         type:DataTypes.ARRAY,
-        defaultValue:"false"
+        // defaultValue:"false"
     }
 }, { timestamps: false });
 
