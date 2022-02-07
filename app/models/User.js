@@ -46,6 +46,10 @@ const User = sequelize.define('User', {
     isAdmin: {
         type: DataTypes.BOOLEAN,
         defaultValue: "false",
+    },
+    roles:{
+        type:DataTypes.ARRAY,
+        defaultValue:"false"
     }
 }, { timestamps: false });
 
