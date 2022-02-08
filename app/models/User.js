@@ -47,10 +47,10 @@ const User = sequelize.define('User', {
         type: DataTypes.BOOLEAN,
         defaultValue: "false",
     },
-    roles:{
-        type:DataTypes.ARRAY(DataTypes.NUMBER),
-        // defaultValue:"false"
-    }
+    // roles:{
+    //     type:DataTypes.ARRAY(DataTypes.NUMBER),
+    //     // defaultValue:"false"
+    // }
 }, { timestamps: false });
 
 module.exports = User;
