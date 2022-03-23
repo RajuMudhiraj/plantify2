@@ -1,12 +1,12 @@
 const Nursery = require('../models/Nursery')
 
 
-const addNursery = (req, res) => {
+exports.addNursery = (req, res) => {
     const { name, address, lat, long, photo } = req.body;
-    const {userId} = req.userData;
+    const { userId } = req.userData;
 
 
-    Nursery.create({ name, address, lat, long, photo, UserId : userId })
+    Nursery.create({ name, address, lat, long, photo, UserId: userId })
         // .save()
         .then(result => {
             res.status(201).json(result)
@@ -16,4 +16,3 @@ const addNursery = (req, res) => {
         })
 }
 
-module.exports = addNursery;

@@ -16,12 +16,6 @@ const morgan = require('morgan')
 // requiring express-session for holding data
 const session = require('express-session');
 
-// Importing middleware of verifyAdmin
-const verifyAdmin = require('./app/middlewares/verifyAdmin')
-
-// Importing middleware of verifyAuth
-const verifyAuth = require('./app/middlewares/verifyAuth')
-
 
 // requiring sequelize instance and connect function and connecting to Database
 const { sequelize, connect } = require('./app/config/database')
@@ -44,61 +38,9 @@ app.use(session({
     cookie: { maxAge: 1000 * 60 * 60 }
 }));
 
-// home route
-app.get("/", (req, res) => {
-    res.status(200).json({ message: "Welcome to Plant1Tree" });
 
-});
-
-// Sign in route
-app.use('/signIn', require('./app/routes/signIn'))
-
-//  check email existence and send otp
-app.use('/checkEmailExistence', require('./app/routes/checkEmailExistence'))
-
-//  verify email otp
-app.use('/verifyEmailOtp', require('./app/routes/verifyEmailOtp'))
-
-// Sign up route
-app.use('/signUp', require('./app/routes/signUp'))
-
-//  add Nursery
-app.use('/addNursery', verifyAuth, require('./app/routes/addNursery'))
-
-//  view Nurseries
-app.use('/viewNurseries', verifyAuth, require('./app/routes/viewNurseries'))
-
-//  add Seedling
-app.use('/addSeedling', verifyAuth, require('./app/routes/addSeedling'))
-
-//  view Seedlings
-app.use('/viewSeedlings', verifyAuth, require('./app/routes/viewSeedlings'))
-
-//  view Users
-app.use('/viewUsers', verifyAdmin, require('./app/routes/viewUsers'))
-
-//  flowBar
-app.use('/viewPlaces', verifyAuth, require('./app/routes/viewPlaces'))
-
-//  Add Plants Place
-app.use('/addPlace', verifyAuth, require('./app/routes/addPlace'))
-
-//  Order Seedling
-app.use('/orderSeedling', verifyAuth, require('./app/routes/orderSeedling'))
-
-//  View Orders
-app.use('/viewOrders', verifyAuth, require('./app/routes/viewOrders'))
-
-//  Mark Orders Delivered
-app.use('/markOrdersDelivered', verifyAuth, require('./app/routes/markOrdersDelivered'))
-
-//  Plant Seedling
-app.use('/plantSeedling', verifyAuth, require('./app/routes/plantSeedling'))
-
-//  View Plants
-app.use('/viewPlants', verifyAuth, require('./app/routes/viewPlants'))
-
-
+// All apis
+app.use('/', require('./app/routes/index'))
 
 
 // set port, listen for requests

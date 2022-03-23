@@ -1,7 +1,7 @@
 const Seedling = require('../models/Seedling')
 const Nursery = require('../models/Nursery')
 
-const addSeedling = (req, res) => {
+exports.addSeedling = (req, res) => {
     const { name, price, quantity, photo, NurseryId } = req.body;
 
     Seedling.findOne({ where: { name: name } })
@@ -25,4 +25,3 @@ const addSeedling = (req, res) => {
         })
 }
 
-module.exports = addSeedling;

@@ -1,7 +1,7 @@
 const User = require('../models/User')
 const { Auth } = require('two-step-auth')
 
-const checkEmail = (req, res) => {
+exports.checkEmailExistence = (req, res) => {
 
     const email = req.body.email;
 
@@ -35,4 +35,3 @@ const checkEmail = (req, res) => {
     }
 }
 
-module.exports = checkEmail;

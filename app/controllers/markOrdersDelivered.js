@@ -7,7 +7,7 @@ const { sequelize } = require('../config/database')
 
 const { Op } = require('sequelize')
 
-const markOrdersDelivered = async (req, res) => {
+exports.markOrdersDelivered = async (req, res) => {
     // const t = sequelize.transaction();
 
     try {
@@ -37,4 +37,3 @@ const markOrdersDelivered = async (req, res) => {
 
 
 
-module.exports = markOrdersDelivered;

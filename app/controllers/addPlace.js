@@ -4,7 +4,7 @@ const { sequelize } = require('../config/database')
 // const FlowBar = require('../models/FlowBar');
 
 
-const addPlace = async (req, res) => {
+exports.addPlace = async (req, res) => {
     // const t = sequelize.transaction();
 
     try {
@@ -58,4 +58,3 @@ const addPlace = async (req, res) => {
 
 
 
-module.exports = addPlace;

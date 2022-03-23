@@ -7,7 +7,7 @@ const { sequelize } = require('../config/database')
 
 const { Op } = require('sequelize')
 
-const plantSeedling = async (req, res) => {
+exports.plantSeedling = async (req, res) => {
     // const t = sequelize.transaction();
 
     try {
@@ -37,4 +37,3 @@ const plantSeedling = async (req, res) => {
 
 
 
-module.exports = plantSeedling;

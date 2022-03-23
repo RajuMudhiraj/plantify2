@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const User = require('../models/User')
 
-const signUp = (req, res) => {
+exports.signUp = (req, res) => {
 
     if (req.session.otp && req.session.otp === req.session.newOtp) {
 
@@ -23,7 +23,7 @@ const signUp = (req, res) => {
 
                         // changing the req.session.otp to a new value
                         req.session.otp = "ga44$@&*1654"
-                        
+
                         res.status(201).json("User created successfully!")
                     })
                     .catch(err => {
@@ -40,4 +40,3 @@ const signUp = (req, res) => {
 
 }
 
-module.exports = signUp;

@@ -2,7 +2,7 @@ const AddPlace = require('../models/AddPlace')
 const {Op} = require('sequelize')
 
 
-const viewPlaces = (req, res) => {
+exports.viewPlaces = (req, res) => {
 
     AddPlace.findAll({ where: { [Op.and]: [{ isPlanted: false }, { isDonated: false }] } })
         // .save()
@@ -14,4 +14,3 @@ const viewPlaces = (req, res) => {
         })
 }
 
-module.exports = viewPlaces;

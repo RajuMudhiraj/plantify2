@@ -1,7 +1,7 @@
 const Seedling = require('../models/Seedling')
 const { Op } = require('sequelize')
 
-const viewNurseries = (req, res) => {
+exports.viewNurseries = (req, res) => {
 
     Seedling.findAll({ where: { quantity: { [Op.gt]: 0 } } })
         // .save()
@@ -13,4 +13,3 @@ const viewNurseries = (req, res) => {
         })
 }
 
-module.exports = viewNurseries;

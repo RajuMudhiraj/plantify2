@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const User = require('../models/User')
 
-const signIn = (req, res) => {
+exports.signIn = (req, res) => {
     User.findOne({ where: { email: req.body.email } })
         .then(result => {
             console.log(result)
@@ -24,11 +24,11 @@ const signIn = (req, res) => {
                             //     req.session.isAdmin = result.dataValues.isAdmin,
 
 
-                                res.status(200).json({
-                                    message: "Auth successful",
-                                    token: token
+                            res.status(200).json({
+                                message: "Auth successful",
+                                token: token
 
-                                })
+                            })
                         }
                         else {
                             // console.log(response)
@@ -39,7 +39,7 @@ const signIn = (req, res) => {
                         }
                     })
                     .catch(err => {
-                        res.status(404).json({ message:"Wrong credentials.", Error: err })
+                        res.status(404).json({ message: "Wrong credentials.", Error: err })
                     })
             }
             else {
@@ -53,4 +53,3 @@ const signIn = (req, res) => {
         })
 }
 
-module.exports = signIn;

@@ -1,7 +1,7 @@
 const SeedlingOrdersPlaced = require('../models/SeedlingOrders')
 const { Op } = require('sequelize')
 
-const viewOrders = (req, res) => {
+exports.viewOrders = (req, res) => {
     const {userId} = req.userData;
     
     SeedlingOrdersPlaced.findAll({ where: { UserId: userId}})
@@ -14,4 +14,3 @@ const viewOrders = (req, res) => {
         })
 }
 
-module.exports = viewOrders;

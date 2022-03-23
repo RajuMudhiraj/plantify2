@@ -2,7 +2,7 @@ const { User } = require('../models/Associations')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
-const verifyEmail = (req, res) => {
+exports.verifyEmailOtp = async (req, res) => {
 
     if (req.session.otp == req.body.otp) {
         req.session.newOtp = Number(req.body.otp);
@@ -19,4 +19,3 @@ const verifyEmail = (req, res) => {
     }
 }
 
-module.exports = verifyEmail;

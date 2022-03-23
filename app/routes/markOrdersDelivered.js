@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
+const { markOrdersDelivered } = require('../controllers/markOrdersDelivered')
+
 
 // Handling POST request to /flowBar
-router.post('/', require('../controllers/markOrdersDelivered'))
+router.post('/', markOrdersDelivered)
 
 
 module.exports = router;

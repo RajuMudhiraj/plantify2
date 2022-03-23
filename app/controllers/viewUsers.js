@@ -1,6 +1,6 @@
 const User = require('../models/User')
 
-const viewUsers = (req, res) => {
+exports.viewUsers = (req, res) => {
 
     User.findAll()
         // .save()
@@ -12,4 +12,3 @@ const viewUsers = (req, res) => {
         })
 }
 
-module.exports = viewUsers;

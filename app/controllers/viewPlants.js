@@ -1,7 +1,7 @@
 const Plant = require('../models/Plant')
 const { Op } = require('sequelize')
 
-const viewPlants = (req, res) => {
+exports.viewPlants = (req, res) => {
     const {userId} = req.userData;
     
     Plant.findAll()
@@ -14,4 +14,3 @@ const viewPlants = (req, res) => {
         })
 }
 
-module.exports = viewPlants;

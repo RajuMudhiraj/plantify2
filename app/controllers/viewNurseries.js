@@ -1,6 +1,6 @@
 const Nursery = require('../models/Nursery')
 
-const viewNurseries = (req, res) => {
+exports.viewNurseries = (req, res) => {
 
     Nursery.findAll()
         // .save()
@@ -12,4 +12,3 @@ const viewNurseries = (req, res) => {
         })
 }
 
-module.exports = viewNurseries;

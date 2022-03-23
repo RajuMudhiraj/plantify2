@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
+const { plantSeedling } = require('../controllers/plantSeedling')
+
 
 // Handling POST request to /flowBar
-router.post('/', require('../controllers/plantSeedling'))
+router.post('/', plantSeedling)
 
 
 module.exports = router;
