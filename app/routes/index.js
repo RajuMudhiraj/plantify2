@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 
+
 // Importing middleware of verifyAdmin
 const verifyAdmin = require('../middlewares/verifyAdmin')
 
@@ -62,6 +63,9 @@ router.use('/plantSeedling', verifyAuth, require('./plantSeedling'))
 
 //  View Plants
 router.use('/viewPlants', verifyAuth, require('./viewPlants'))
+
+
+
 
 module.exports = router;
 

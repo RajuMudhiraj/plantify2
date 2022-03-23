@@ -17,6 +17,10 @@ const morgan = require('morgan')
 const session = require('express-session');
 
 
+const swaggerUI = require('swagger-ui-express');
+const swaggerJsDoc = require('swagger-jsdoc')
+
+
 // requiring sequelize instance and connect function and connecting to Database
 const { sequelize, connect } = require('./app/config/database')
 connect(sequelize)
@@ -37,6 +41,28 @@ app.use(session({
     saveUninitialized: true,
     cookie: { maxAge: 1000 * 60 * 60 }
 }));
+
+
+// swagger ui setup
+const options = {
+    definition: {
+        openapi: "3.0.0",
+        info: {
+            title: "Plant1Tree API",
+            version: "1.0.0",
+            description: "Api documentation"
+        },
+        servers: [
+            {
+                url: "http://localhost:5000/"
+            }
+        ],
+    },
+    apis: ["./*.js"],
+}
+
+const specs = swaggerJsDoc(options)
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs))
 
 
 // All apis
