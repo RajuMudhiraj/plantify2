@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-
-
 // Importing middleware of verifyAdmin
 const verifyAdmin = require('../middlewares/verifyAdmin')
 
