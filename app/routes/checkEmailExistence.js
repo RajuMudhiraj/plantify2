@@ -7,7 +7,7 @@ const { checkEmailExistence } = require('../controllers/checkEmailExistence')
  * @swagger
  * /checkEmailExistence:
  *   post:
- *     summary: Check if the email already exists, if not send otp
+ *     summary: Check if the email already exists, if not get otp
  *     tags: [User]
  *     parameters:
  *       - in: query

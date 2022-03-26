@@ -40,7 +40,7 @@ const { signUp } = require('../controllers/signUp')
 * @swagger
 * /signUp:
 *   post:
-*     summary: Create new user
+*     summary: "First complete these apis 1. post method of /checkEmailexistence, 2. post method of /verifyEmailOtp"
 *     tags: [User]
 *     requestBody:
 *       required: true
