@@ -9,10 +9,16 @@ exports.addNursery = (req, res) => {
     Nursery.create({ name, address, lat, long, photo, UserId: userId })
         // .save()
         .then(result => {
-            res.status(201).json(result)
+            res.status(201).json({
+                success: true,
+                message: "Nursery created successfully!"
+            })
         })
         .catch(err => {
-            res.status(500).json({ Error: err + "" })
+            res.status(400).json({
+                success: false,
+                message: err + ""
+            })
         })
 }
 
