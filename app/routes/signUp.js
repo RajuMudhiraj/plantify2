@@ -46,6 +46,11 @@ const { signUp } = require('../controllers/signUp')
 *       required: true
 *       content:
 *         application/json:
+*           example:
+*             password: password
+*             name: test user
+*             dob: 01-01-1990
+*             gender: male
 *           schema:
 *             $ref: '#/components/schemas/User'
 *     responses:
@@ -63,9 +68,6 @@ const { signUp } = require('../controllers/signUp')
 *             example:
 *               success: true
 *               message: User created successfully.
-*               user:
-*                 id: 6234ac75ec0fbb40272d564b
-*                 email: test1@gmail.com   
 *       400:
 *         description: Error message.
 *         content:

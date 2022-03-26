@@ -20,6 +20,7 @@ exports.checkEmailExistence = (req, res) => {
                         req.session.email = email;
                         const result = await Auth(email, "Test company");
                         req.session.otp = result.OTP
+                        console.log(result.OTP)
                         res.status(201).json({
                             success: true,
                             message: `OTP successfully sent to ${email} !`

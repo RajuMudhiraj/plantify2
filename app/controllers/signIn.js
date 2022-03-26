@@ -25,21 +25,25 @@ exports.signIn = (req, res) => {
 
 
                             res.status(200).json({
-                                message: "Auth successful",
-                                token: token
+                                success: true,
+                                token: `Bearer ${token}`
 
                             })
                         }
                         else {
                             // console.log(response)
-                            res.status(404).json({
+                            res.status(400).json({
+                                success: false,
                                 Message: "Auth failed."
                             })
 
                         }
                     })
                     .catch(err => {
-                        res.status(404).json({ message: "Wrong credentials.", Error: err })
+                        res.status(400).json({
+                            success: false,
+                            message: err + " "
+                        })
                     })
             }
             else {

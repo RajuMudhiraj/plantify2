@@ -7,14 +7,14 @@ exports.verifyEmailOtp = async (req, res) => {
     if (req.session.otp == req.body.otp) {
         req.session.newOtp = Number(req.body.otp);
         res.status(200).json({
-            message: "OTP verified successfully!",
-            status: "Success"
+            success: "true",
+            message: "OTP verified successfully!"
         });
     }
     else {
-        res.status(200).json({
-            message: "OTP doesn't match",
-            status: "Failed"
+        res.status(400).json({
+            success: "false",
+            message: "OTP doesn't match"
         });
     }
 }

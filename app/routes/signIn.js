@@ -23,6 +23,7 @@ const { signIn } = require('../controllers/signIn')
 *         content:
 *           application/json:
 *             example:
+*               success: true
 *               token: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlkIjoiNjIyYzQzZjZlMzc1NThlMzJhZDk2YjU3IiwiaWF0IjoxNjQ3NDUyNTEyLCJleHAiOjE2NDc1Mzg5MTJ9.E4gYxOZuXS7AfZphRNHDTqfLov5S-GkvLyq7AH2Iq18
 *       400:
 *         description: Returns error message

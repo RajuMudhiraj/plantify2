@@ -3,10 +3,11 @@ const jwt = require('jsonwebtoken')
 const User = require('../models/User')
 
 exports.signUp = (req, res) => {
+    const { password, name, gender, dob } = req.body;
 
     if (req.session.otp && req.session.otp === req.session.newOtp) {
 
-        bcrypt.hash(req.body.password, 10, function (err, hash) {
+        bcrypt.hash(password, 10, function (err, hash) {
             if (err) {
                 res.status(500).json({ Error: err + " Something went wrong while hashing password" })
             }
@@ -14,9 +15,9 @@ exports.signUp = (req, res) => {
                 const user = {
                     email: req.session.email,
                     password: hash,
-                    name: req.body.name,
-                    gender: req.body.gender,
-                    dob: req.body.dob
+                    name: name,
+                    gender: gender,
+                    dob: dob
                 }
                 User.create(user)
                     .then(result => {
@@ -24,17 +25,26 @@ exports.signUp = (req, res) => {
                         // changing the req.session.otp to a new value
                         req.session.otp = "ga44$@&*1654"
 
-                        res.status(201).json("User created successfully!")
+                        res.status(201).json({
+                            success: true,
+                            message: "User created successfully!"
+                        })
                     })
                     .catch(err => {
-                        res.status(500).json({ Error: err + " Something went wrong while creating user." })
+                        res.status(400).json({
+                            success: false,
+                            message: err + " "
+                        })
                     })
             }
 
         });
     }
     else {
-        res.status(401).json({ message: "Please verify email" })
+        res.status(400).json({
+            success: false,
+            message: "Please verify the email"
+        })
     }
 
 
