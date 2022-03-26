@@ -3,23 +3,27 @@ const { Auth } = require('two-step-auth')
 
 exports.checkEmailExistence = (req, res) => {
 
-    const email = req.body.email;
+    const { email } = req.query;
 
     if (email.match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)) {
 
         User.findOne({ where: { email: email } })
             .then(async result => {
                 if (result) {
-                    res.status(200).json({ message: "User already exists." })
+                    res.status(200).json({
+                        success: true,
+                        message: "User already exists."
+                    })
                 }
                 else {
                     try {
-                        req.session.email = req.body.email;
-                        const result = await Auth(req.body.email, "Test company");
+                        req.session.email = email;
+                        const result = await Auth(email, "Test company");
                         req.session.otp = result.OTP
-                        console.log(result.OTP)
-                        console.log(req.session.email)
-                        res.status(200).json({ message: "OTP sent successfully!" })
+                        res.status(201).json({
+                            success: true,
+                            message: `OTP successfully sent to ${email} !`
+                        })
                     }
                     catch (err) {
                         res.status(404).json({ message: err + "" })
@@ -27,11 +31,17 @@ exports.checkEmailExistence = (req, res) => {
                 }
             })
             .catch(err => {
-                res.status(500).json({ Error: err + " Something went wrong while finding user." })
+                res.status(400).json({
+                    success: false,
+                    message: err + " "
+                })
             })
     }
     else {
-        res.status(401).json({ message: "Invalid email id" })
+        res.status(400).json({
+            success: false,
+            message: "Invalid email id"
+        })
     }
 }
 
