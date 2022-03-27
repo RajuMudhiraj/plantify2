@@ -66,7 +66,7 @@ const { addNursery } = require('../controllers/addNursery')
 *             long: 78.11111
 *             photo: https://en.gaonconnection.com/wp-content/uploads/2021/06/nursery-3.jpg
 *           schema:
-*             $ref: '#/components/schemas/Nurseryqqq'
+*             $ref: '#/components/schemas/Nursery'
 *     responses:
 *       201:
 *         description: The response of Nursery creation.
