@@ -53,7 +53,7 @@ const { addPlace } = require('../controllers/addPlace')
  * @swagger
  * tags:
  *   name: AddPlace
- *   description: The place managing apis
+ *   description: The place managing api
  */
 
 /**
@@ -76,12 +76,12 @@ const { addPlace } = require('../controllers/addPlace')
 *             $ref: '#/components/schemas/AddPlace'
 *     responses:
 *       201:
-*         description: The response of adding place.
+*         description: The response of Nursery creation.
 *         content:
 *           application/json:
 *             example:
 *               success: true
-*               message: Place added successfully! 
+*               message: Nursery created successfully! 
 *       400:
 *         description: The error message.
 *         content:

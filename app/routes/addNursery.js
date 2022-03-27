@@ -3,6 +3,41 @@ const router = express.Router();
 
 const { addNursery } = require('../controllers/addNursery')
 
+// Swagger documentation for User Schema.
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Nursery:
+ *       type: object
+ *       required:
+ *         - lat
+ *         - long
+ *       properties:
+ *         name:
+ *           type: string
+ *           description: Name of the place
+ *         lat:
+ *           type: float
+ *           description: The latitude
+ *         long:
+ *           type: float
+ *           description: The longitude
+ *         address:
+ *           type: string
+ *           description: The adress of nursery
+ *         photo:
+ *           type: string
+ *           description: The link of photo
+ *         
+ *       example:
+ *         name: Test Nursery
+ *         lat: 19.11111
+ *         long: 78.11111
+ *         address: Test address
+ *         photo: https://en.gaonconnection.com/wp-content/uploads/2021/06/nursery-3.jpg
+ *                
+ */
 
 // Nursery tag for grouping all Nursery managing apis
 /**
@@ -31,7 +66,7 @@ const { addNursery } = require('../controllers/addNursery')
 *             long: 78.11111
 *             photo: https://en.gaonconnection.com/wp-content/uploads/2021/06/nursery-3.jpg
 *           schema:
-*             $ref: '#/components/schemas/User'
+*             $ref: '#/components/schemas/Nurseryqqq'
 *     responses:
 *       201:
 *         description: The response of Nursery creation.
